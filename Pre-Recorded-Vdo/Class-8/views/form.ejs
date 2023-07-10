@@ -1,0 +1,70 @@
+
+<%- include('./partials/header.ejs') %>
+
+    <div class="container">
+      <form action="/api/addProduct" method="post">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" name="title" />
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            name="description"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="price">Price</label>
+          <input type="number" class="form-control" id="price" name="price" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="discountPercentage">Discount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="discountPercentage"
+            name="discountPercentage"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="rating">Rating</label>
+          <input type="number" class="form-control" id="rating" name="rating" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="brand">Brand</label>
+          <input type="text" class="form-control" id="brand" name="brand" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="category">Category</label>
+          <input
+            type="text"
+            class="form-control"
+            id="category"
+            name="category"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="thumbnail">Thumbnail</label>
+          <input
+            type="text"
+            class="form-control"
+            id="thumbnail"
+            name="thumbnail"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+<%- include('./partials/footer.ejs') %>
