@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pageName</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css"
+    />
+    <link rel="stylesheet" href="../public/styles.css" />
+  </head>
+  <body>
+    <center><h1>Movies Buzz</h1></center>
+
+    <table id="movieTable">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Language</th>
+          <th scope="col">Ratings</th>
+          <th scope="col">Type</th>
+          <th scope="col">Image</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < movies.length; i++) { %>
+        <tr>
+          <th scope="row"><%= movies[i].id %></th>
+          <td><%= movies[i].name %></td>
+          <td><%= movies[i].language %></td>
+          <td><%= movies[i].rate %></td>
+          <td><%= movies[i].type %></td>
+          <td><%= movies[i].imageUrl %></td>
+          <td><%= movies[i].status %></td>
+          <td><button onclick="sendMail('<%= i %>')">Send Mail</button></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+
+    <hr />
+    <h2>Add Movie details</h2>
+    <form action="/postMovies" method="POST">
+      <label for="name"> Movie Name:</label><br />
+      <input type="text" name="name" /><br />
+      <label for="language"> Language:</label><br />
+      <input type="text" name="language" /><br /><br />
+      <label for="rate"> Rating:</label><br />
+      <input type="text" name="rate" /><br /><br />
+      <label for="type"> Type:</label><br />
+      <input type="text" name="type" /><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <hr />
+
+    <center>Copyright Suresh@2023</center>
+    <script
+      src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"
+    ></script>
+    <script src="../public/script.js"></script>
+    <script>
+      let movieList = <%- JSON.stringify(movies) %>;
+    </script>
+  </body>
+</html>
