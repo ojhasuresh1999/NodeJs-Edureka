@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <!-- <link rel="stylesheet" href="../public/styles.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+  <style>
+    h1 {
+      color: rgb(98, 0, 0);
+      text-shadow: 2px 2px #28346c;
+    }
+
+    .card {
+      width: 211px;
+      border-radius: 5%;
+      background: #051258b0;
+      color: #fff;
+      margin-left: 3%;
+    }
+
+    .card:hover {
+      transform: scale(1.1);
+    }
+
+    .card-img-top {
+      width: 44%;
+    }
+
+    .max {
+      color: rgb(166, 226, 236);
+      font-weight: bold;
+    }
+
+    .min {
+      color: rgb(104, 155, 241);
+      font-weight: bold;
+    }
+
+    .day{
+      color:rgb(236,255,124)
+    }
+
+    .topTemp{
+      font-size: 26px;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container my-5">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <center>
+      <h1><%= title %></h1>
+    </center>
+    <div class="row">
+      <% for(let i = 0; i <output.list.length; i++) { %>
+      <div class="card mx-3 my-3" style="width: 18rem">
+        <div class="row">
+          <img src="https://openweathermap.org/img/wn/<%= output.list[i].weather[0].icon %>@2x.png" class="card-img-top" alt="..." />
+          <span class="topTemp"> <%= (output.list[i].main.temp - 273.15).toFixed(2) %> °C</span>
+        </div>
+
+        <div class="card-body">
+          <span class="max"><%= (output.list[i].main.temp_max  - 273.15).toFixed(2) %> °C</span>
+          <span>/</span>
+          <span class="min"><%= (output.list[i].main.temp_min  - 273.15).toFixed(2) %> °C</span>
+
+          <h4 class="card-title"><%= output.list[i].weather[0].main %></h4>
+
+          <div class="card-text">
+            <p class="day"><%= Date(output.list[i].dt)%></p>
+            <p>Humidity: <%= output.list[i].main.humidity %></p>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+
+</html>

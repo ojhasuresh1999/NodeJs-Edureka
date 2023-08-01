@@ -1,0 +1,40 @@
+ h1 {
+     color: rgb(98, 0, 0);
+     text-shadow: 2px 2px #28346c;
+ }
+
+ .card {
+     width: 211px;
+     border-radius: 5%;
+     background: #051258b0;
+     color: #fff;
+     margin-left: 3%;
+ }
+
+ .card:hover {
+     transform: scale(1.1);
+ }
+
+ .card-img-top {
+     width: 44%;
+ }
+
+ .max {
+     color: rgb(166, 226, 236);
+     font-weight: bold;
+ }
+
+ .min {
+     color: rgb(104, 155, 241);
+     font-weight: bold;
+ }
+
+ .day {
+     color: rgb(236, 255, 124)
+ }
+
+ .topTemp {
+     font-size: 26px;
+     color: white;
+     font-weight: bold;
+ }
